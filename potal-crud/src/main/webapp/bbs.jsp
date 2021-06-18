@@ -2,14 +2,14 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.io.PrintWriter" %>
 <%@ page import="bbs.BbsDAO" %>
-<%@ page import="bbs.Bbs" %>
+<%@ page import="bbs.bbs" %>
 <%@ page import="java.util.ArrayList" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <!-- 화면 최적화 -->
-<meta name="viewport" content="width-device-width", initial-scale="1">
+<meta name="viewport" content="width-device-width">
 <!-- 루트 폴더에 부트스트랩을 참조하는 링크 -->
 <link rel="stylesheet" href="css/bootstrap.css">
 <title>JSP 게시판 웹 사이트</title>
@@ -109,7 +109,7 @@
 				<tbody>
 					<%
 						BbsDAO bbsDAO = new BbsDAO(); // 인스턴스 생성
-						ArrayList<Bbs> list = bbsDAO.getList(pageNumber);
+						ArrayList<bbs> list = bbsDAO.getList(pageNumber);
 						for(int i = 0; i < list.size(); i++){
 					%>
 					<tr>

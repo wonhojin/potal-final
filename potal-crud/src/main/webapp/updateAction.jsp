@@ -1,6 +1,6 @@
 <%@page import="java.io.PrintWriter"%>
 <%@page import="bbs.BbsDAO"%>
-<%@page import="bbs.Bbs"%>
+<%@page import="bbs.bbs"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <% request.setCharacterEncoding("utf-8"); %>
@@ -38,7 +38,7 @@
 			script.println("</script>");
 		}
 		//해당 'bbsID'에 대한 게시글을 가져온 다음 세션을 통하여 작성자 본인이 맞는지 체크한다
-		Bbs bbs = new BbsDAO().getBbs(bbsID);
+		bbs bbs = new BbsDAO().getBbs(bbsID);
 		if(!userID.equals(bbs.getUserID())){
 			PrintWriter script = response.getWriter();
 			script.println("<script>");

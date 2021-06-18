@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.io.PrintWriter" %>
-<%@ page import="bbs.Bbs" %>
+<%@ page import="bbs.bbs" %>
 <%@ page import="bbs.BbsDAO" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <!-- 화면 최적화 -->
-<meta name="viewport" content="width-device-width", initial-scale="1">
+<meta name="viewport" content="width-device-width">
 <!-- 루트 폴더에 부트스트랩을 참조하는 링크 -->
 <link rel="stylesheet" href="css/bootstrap.css">
 <title>JSP 게시판 웹 사이트</title>
@@ -39,7 +39,7 @@
 			script.println("</script>");
 		}
 		//해당 'bbsID'에 대한 게시글을 가져온 다음 세션을 통하여 작성자 본인이 맞는지 체크한다
-		Bbs bbs = new BbsDAO().getBbs(bbsID);
+		bbs bbs = new BbsDAO().getBbs(bbsID);
 		if(!userID.equals(bbs.getUserID())){
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
