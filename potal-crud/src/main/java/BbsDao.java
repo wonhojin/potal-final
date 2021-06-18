@@ -13,9 +13,9 @@ public class BbsDAO {
 	//기본 생성자
 	public BbsDAO() {
 		try {
-			String dbURL = "jdbc:mariadb://localhost:3306/bbs";
+			String dbURL = "jdbc:mariadb://localhost:3306/BBS";
 			String dbID = "root";
-			String dbPassword = "001025";
+			String dbPassword = "123123";
 			Class.forName("org.mariadb.jdbc.Driver");
 			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
 		}catch (Exception e) {
