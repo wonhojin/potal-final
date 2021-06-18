@@ -16,7 +16,7 @@ public class UserDAO {
 	//메소드마다 반복되는 코드를 이곳에 넣으면 코드가 간소화된다
 	public UserDAO() {
 		try {
-			String dbURL = "jdbc:mariadb://localhost:3306/BBS?characterEncoding=utf-8&serverTimezone=UTC";
+			String dbURL = "jdbc:mariadb://localhost:3306/BBS?characterEncoding=UTF-8&serverTimezone=UTC";
 			String dbID = "root";
 			String dbPassword = "123123";
 			Class.forName("org.mariadb.jdbc.Driver");
@@ -25,24 +25,24 @@ public class UserDAO {
 			e.printStackTrace();
 		}
 	}
-	//로그인 영역
+	
 		public int login(String userID, String userPassword) {
 			String sql = "select userPassword from user where userID = ?";
 			try {
-				pstmt = conn.prepareStatement(sql); //sql쿼리문을 대기 시킨다
-				pstmt.setString(1, userID); //첫번째 '?'에 매개변수로 받아온 'userID'를 대입
-				rs = pstmt.executeQuery(); //쿼리를 실행한 결과를 rs에 저장
+				pstmt = conn.prepareStatement(sql); 
+				pstmt.setString(1, userID); 
+				rs = pstmt.executeQuery(); 
 				if(rs.next()) {
 					if(rs.getString(1).equals(userPassword)) {
-						return 1; //로그인 성공
+						return 1; 
 					}else
-						return 0; //비밀번호 틀림
+						return 0; 
 				}
-				return -1; //아이디 없음
+				return -1; 
 			}catch (Exception e) {
 				e.printStackTrace();
 			}
-			return -2; //오류
+			return -2; 
 		}
 		
 		public int join(user user) {
